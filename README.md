@@ -1,6 +1,9 @@
 # X52 PRO Mouse Ministick to Axes
 A simple registry hack to map the mouse ministick of the X52 PRO to usable axes. Instead of having an X/Y mouse movement, you can make it work as independent axes which can be pretty useful for slew functions in flying simulators (e.g. Throttle Designator Controller (TDC) in a F/A-18C Hornet).
 
+## Note for X52 Non-PRO
+My solution was originally tested on the X52 PRO as this is the only device I own. It was later brought to my attention what should be done for the non-pro version. As such, a solution for the non-pro version is now also provided.
+
 ## Limitation & Implication
 The X52 PRO is using a total of 7 physical axes and the protocol used with the device permits a total of 8 axes. This implies that we only have one free axis for the X/Y mouse ministick movement. 
 
@@ -14,14 +17,19 @@ By applying this registry hack, the X movement of the ministick will be mapped t
 ### Install
 
 - Download the `src` folder.
-- Launch `src/x52pro_ministick_map__X-to-RZ___Y-to-SLIDER2.reg` and apply changes.
 
-#### Disable the X52 PRO mouse driver
+If using X52 Non-PRO:
+  - Launch `src/X52_(Non-PRO)/x52(non-pro)_ministick_map__X-to-RZ___Y-to-SLIDER2.reg` and apply changes.
+
+If using X52 PRO:
+  - Launch `src/X52_PRO/x52pro_ministick_map__X-to-RZ___Y-to-SLIDER2.reg` and apply changes.
+
+#### Disable the X52 mouse driver
 If moving the ministick after the registry hack is moving a mouse cursor on your screen, you'll need to disable the driver associated with it.
 
 - Open the Device Manager (WIN+R, type devmgmt.msc then enter)
 - Open "Mice and other pointing devices" sub-menu
-- Inspect each device to find the mouse associated to your X52 PRO
+- Inspect each device to find the mouse associated to your X52
     - Right click => Properties => Details tab => Look at the property "Device instance path" or "Hardware Ids"
 - Disable it
     - Right click => "Disable device"
@@ -31,8 +39,14 @@ If moving the ministick after the registry hack is moving a mouse cursor on your
 
 ### Uninstall
 
-- Launch `src/x52pro_ministick_map_UNINSTALL.reg` and apply changes.
-- Enable back the X52 PRO mouse driver if you disabled it and need it again.
+If using X52 Non-PRO:
+  - Launch `src/X52_(Non-PRO)/x52(non-pro)_ministick_map_UNINSTALL.reg` and apply changes.
+
+If using X52 PRO:
+  - Launch `src/X52_PRO/x52pro_ministick_map_UNINSTALL.reg` and apply changes.
+
+Then:
+  - Enable back the X52 mouse driver if you disabled it and need it again.
 
 
 ## Why the Windows joystick viewer doesn't apply the mapping?
